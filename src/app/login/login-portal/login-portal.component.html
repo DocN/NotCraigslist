@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row navbar">
+    <div class="col-12">
+        <div class="row">
+            <div class="logo">ncl</div> 
+            <div class="logoTitle">account log in</div>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container">
+      <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="loginBox">
+              <div class="loginTitle">
+                Log in
+              </div>
+              <div class="loginInputBox">
+                  <div class="md-form">
+                      <input name="username" [(ngModel)]="model.username" #username="ngModel" type="text" id="defaultForm-email" class="form-control" mdbActive>
+                      <label for="defaultForm-email">Your email</label>
+                  </div>
+                  <div class="md-form">
+                      <input name="password" [(ngModel)]="model.password" #password="ngModel"  type="password" id="defaultForm-pass" class="form-control" mdbActive>
+                      <label for="defaultForm-pass">Your password</label>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <a href="#">Forgot Password?</a>
+                    </div>
+                    <div class="col-6">
+                      <div class="pull-right">
+                        <button (click)="login()" type="submit">Login</button>
+                      </div>  
+                    </div>
+                  </div>
+              </div>
+            </div>
+
+            <div class="loginBox">
+                <div class="loginTitle">
+                  create an account
+                </div>
+                <div class="loginInputBox">
+                    <div class="md-form">
+                        <input name="username" [(ngModel)]="model.username" #username="ngModel" type="text" id="defaultForm-email" class="form-control" mdbActive>
+                        <label for="defaultForm-email">Email</label>
+                    </div>
+                    <div class="row">
+                      <div class="col-6">
+                        <a href="#">Account help</a>
+                      </div>
+                      <div class="col-6">
+                        <div class="pull-right">
+                          <button (click)="login()" type="submit">create account</button>
+                        </div>  
+                      </div>
+                    </div>
+                </div>
+              </div>
+        </div>
+        <div class="col-3"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
