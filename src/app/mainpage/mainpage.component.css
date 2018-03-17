@@ -1,0 +1,124 @@
+.leftBar {
+    height:1000px;
+    width:12vw;
+    background-color:#f4f4f4;
+    border-style: solid;
+    border-color: lightgrey;
+    border-top:0px;
+    border-bottom:0px;
+    border-width:1px;
+}
+
+.topSpacing {
+    width:100%;
+    height:20px;
+}
+
+.logo {
+    text-align: center;
+    height:75px;
+    font-size:30px;
+    color:blue;
+}
+
+.menuItem {
+    text-align: center;
+    font-size:15px;  
+}
+
+.menuHighlight {
+    display: inline;
+    background-color:lightyellow;
+    color:black;
+}
+.menuHighlightWhite{
+    text-align:center;
+    background-color:white;
+    color:black;
+    border-top:1px;
+    border-bottom:1px;
+    border-left:0px;
+    border-right:0px;
+    border-color:lightgrey;
+    border-style:solid;
+    font-weight:bold;
+}
+
+.menuItemMarginTop {
+    margin-top:20px;
+}
+
+.cityTitleBar {
+    height:50px;
+    width:100%;
+    background-color:#f4f4f4;
+    border-style: solid;
+    border-color: lightgrey;
+    border-left:0px;
+    border-right:0px;
+    border-width:1px;
+}
+
+.titleText {
+    font-size:20px;
+    text-align:center;
+}
+
+.nearByCityTitle {
+    margin-left:5px;
+    display: inline;
+    background-color:white;
+    font-size:14px;
+}
+
+.languageDropdown {
+    padding-top:20px;
+    text-align:center;
+}
+
+.centerPiece {
+    margin:0;
+    padding:0;
+}
+
+.rightMenu{
+    width: 100%;
+    height:1000px;
+    background-color:#f4f4f4;
+}
+
+.noPaddingMargin {
+    padding:0;
+    margin:0;
+}
+
+.centerBox {
+
+}
+
+.centerBoxTop {
+    margin-top:20px;
+    border-top:1px;
+    border-bottom:1px;
+    border-left:0px;
+    border-right:0px;
+    border-color:lightgrey;
+    border-style:solid;
+    text-align:center;
+    background-color:#eeeeee;
+}
+
+.boxItem {
+    width:100%;
+    border-top:0px;
+    border-bottom:1px;
+    border-left:0px;
+    border-right:0px;
+    border-color:lightgrey;
+    border-style:solid;
+    text-align:left;
+}
+
+a {
+    color:blue;
+}
