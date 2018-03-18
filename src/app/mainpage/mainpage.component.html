@@ -67,32 +67,16 @@
             </div>
           </div>
         </div>
-
         <div class="row">
-          <div class="col-4" *ngFor="let business of this.mainCategoriesName; let i = index">
+          <div class="col-4">
             <div class="centerBox">
               <div class="centerBoxTop">
-                <a href="#">{{business}}</a>
+                <a href="#">community</a>
               </div>
               <div class="container-fluid noPaddingMargin">
                 <div class="row noPaddingMargin">
-                  <div class="col-6">
-                    <div class="boxItem"><a href="#">activities</a></div>
-                    <div class="boxItem"><a href="#">artist</a></div>
-                    <div class="boxItem"><a href="#">childcare</a></div>
-                    <div class="boxItem"><a href="#">classes</a></div>
-                    <div class="boxItem"><a href="#">events</a></div>
-                    <div class="boxItem"><a href="#">general</a></div>
-                    <div class="boxItem"><a href="#">groups</a></div>
-                  </div>
-                  <div class="col-6">
-                    <div class="boxItem"><a href="#">news</a></div>
-                    <div class="boxItem"><a href="#">lost+found</a></div>
-                    <div class="boxItem"><a href="#">musicians</a></div>
-                    <div class="boxItem"><a href="#">pets</a></div>
-                    <div class="boxItem"><a href="#">politics</a></div> 
-                    <div class="boxItem"><a href="#">rideshare</a></div> 
-                    <div class="boxItem"><a href="#">volunteers</a></div> 
+                  <div class="col-6" *ngFor="let subcategories of subcategories?.community?.categoryName">
+                      <div class="boxItem"><a href="#">{{subcategories}}</a></div>
                   </div>
                 </div>
               </div>
@@ -100,243 +84,109 @@
           </div>
           <div class="col-4">
             <div class="centerBox">
-                <div class="centerBoxTop">
-                  <a href="#">{{business}}</a>
-                </div>
-                <div class="container-fluid noPaddingMargin">
-                  <div class="row noPaddingMargin">
-                    <div class="col-6">
-                      <div class="boxItem"><a href="#">activities</a></div>
-                      <div class="boxItem"><a href="#">artist</a></div>
-                      <div class="boxItem"><a href="#">childcare</a></div>
-                      <div class="boxItem"><a href="#">classes</a></div>
-                      <div class="boxItem"><a href="#">events</a></div>
-                      <div class="boxItem"><a href="#">general</a></div>
-                      <div class="boxItem"><a href="#">groups</a></div>
-                    </div>
-                    <div class="col-6">
-                      <div class="boxItem"><a href="#">news</a></div>
-                      <div class="boxItem"><a href="#">lost+found</a></div>
-                      <div class="boxItem"><a href="#">musicians</a></div>
-                      <div class="boxItem"><a href="#">pets</a></div>
-                      <div class="boxItem"><a href="#">politics</a></div> 
-                      <div class="boxItem"><a href="#">rideshare</a></div> 
-                      <div class="boxItem"><a href="#">volunteers</a></div> 
-                    </div>
+              <div class="centerBoxTop">
+                <a href="#">personals</a>
+              </div>
+              <div class="container-fluid noPaddingMargin">
+                <div class="row noPaddingMargin">
+                  <div class="col-6" *ngFor="let subcategories of subcategories?.personals?.categoryName">
+                      <div class="boxItem"><a href="#">{{subcategories}}</a></div>
+                  </div>
+                  <div class="col-6">
+                      <div class="boxItem"><a href="#">{{subcategories}}</a></div>
                   </div>
                 </div>
               </div>
+            </div>
           </div>
           <div class="col-4">
             <div class="centerBox">
-                <div class="centerBoxTop">
-                  <a href="#">{{business}}</a>
-                </div>
-                <div class="container-fluid noPaddingMargin">
-                  <div class="row noPaddingMargin">
-                    <div class="col-6">
-                      <div class="boxItem"><a href="#">activities</a></div>
-                      <div class="boxItem"><a href="#">artist</a></div>
-                      <div class="boxItem"><a href="#">childcare</a></div>
-                      <div class="boxItem"><a href="#">classes</a></div>
-                      <div class="boxItem"><a href="#">events</a></div>
-                      <div class="boxItem"><a href="#">general</a></div>
-                      <div class="boxItem"><a href="#">groups</a></div>
-                    </div>
-                    <div class="col-6">
-                      <div class="boxItem"><a href="#">news</a></div>
-                      <div class="boxItem"><a href="#">lost+found</a></div>
-                      <div class="boxItem"><a href="#">musicians</a></div>
-                      <div class="boxItem"><a href="#">pets</a></div>
-                      <div class="boxItem"><a href="#">politics</a></div> 
-                      <div class="boxItem"><a href="#">rideshare</a></div> 
-                      <div class="boxItem"><a href="#">volunteers</a></div> 
-                    </div>
+              <div class="centerBoxTop">
+                <a href="#">housing</a>
+              </div>
+              <div class="container-fluid noPaddingMargin">
+                <div class="row noPaddingMargin">
+                  <div class="col-6" *ngFor="let subcategories of subcategories?.housing?.categoryName">
+                      <div class="boxItem"><a href="#">{{subcategories}}</a></div>
+                  </div>
+                  <div class="col-6">
+                      <div class="boxItem"><a href="#">{{subcategories}}</a></div>
                   </div>
                 </div>
               </div>
+            </div>
           </div>
         </div>
-
+        
         <div class="row">
-            <div class="col-4">
-              <div class="centerBox">
-                <div class="centerBoxTop">
-                  <a href="#">{{business}}</a>
-                </div>
-                <div class="container-fluid noPaddingMargin">
-                  <div class="row noPaddingMargin">
-                    <div class="col-6">
-                      <div class="boxItem"><a href="#">activities</a></div>
-                      <div class="boxItem"><a href="#">artist</a></div>
-                      <div class="boxItem"><a href="#">childcare</a></div>
-                      <div class="boxItem"><a href="#">classes</a></div>
-                      <div class="boxItem"><a href="#">events</a></div>
-                      <div class="boxItem"><a href="#">general</a></div>
-                      <div class="boxItem"><a href="#">groups</a></div>
-                    </div>
-                    <div class="col-6">
-                      <div class="boxItem"><a href="#">news</a></div>
-                      <div class="boxItem"><a href="#">lost+found</a></div>
-                      <div class="boxItem"><a href="#">musicians</a></div>
-                      <div class="boxItem"><a href="#">pets</a></div>
-                      <div class="boxItem"><a href="#">politics</a></div> 
-                      <div class="boxItem"><a href="#">rideshare</a></div> 
-                      <div class="boxItem"><a href="#">volunteers</a></div> 
-                    </div>
+          <div class="col-4">
+            <div class="centerBox">
+              <div class="centerBoxTop">
+                <a href="#">for sale</a>
+              </div>
+              <div class="container-fluid noPaddingMargin">
+                <div class="row noPaddingMargin">
+                  <div class="col-6" *ngFor="let subcategories of subcategories?.forsale?.categoryName">
+                      <div class="boxItem"><a href="#">{{subcategories}}</a></div>
+                  </div>
+                  <div class="col-6">
+                      <div class="boxItem"><a href="#">{{subcategories}}</a></div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-4">
-              <div class="centerBox">
-                  <div class="centerBoxTop">
-                    <a href="#">{{business}}</a>
+          </div>     
+          <div class="col-4">
+            <div class="centerBox">
+              <div class="centerBoxTop">
+                <a href="#">jobs</a>
+              </div>
+              <div class="container-fluid noPaddingMargin">
+                <div class="row noPaddingMargin">
+                  <div class="col-6" *ngFor="let subcategories of subcategories?.forsale?.categoryName">
+                      <div class="boxItem"><a href="#">{{subcategories}}</a></div>
                   </div>
-                  <div class="container-fluid noPaddingMargin">
-                    <div class="row noPaddingMargin">
-                      <div class="col-6">
-                        <div class="boxItem"><a href="#">activities</a></div>
-                        <div class="boxItem"><a href="#">artist</a></div>
-                        <div class="boxItem"><a href="#">childcare</a></div>
-                        <div class="boxItem"><a href="#">classes</a></div>
-                        <div class="boxItem"><a href="#">events</a></div>
-                        <div class="boxItem"><a href="#">general</a></div>
-                        <div class="boxItem"><a href="#">groups</a></div>
-                      </div>
-                      <div class="col-6">
-                        <div class="boxItem"><a href="#">news</a></div>
-                        <div class="boxItem"><a href="#">lost+found</a></div>
-                        <div class="boxItem"><a href="#">musicians</a></div>
-                        <div class="boxItem"><a href="#">pets</a></div>
-                        <div class="boxItem"><a href="#">politics</a></div> 
-                        <div class="boxItem"><a href="#">rideshare</a></div> 
-                        <div class="boxItem"><a href="#">volunteers</a></div> 
-                      </div>
-                    </div>
+                  <div class="col-6">
+                      <div class="boxItem"><a href="#">{{subcategories}}</a></div>
                   </div>
                 </div>
+              </div>
             </div>
-            <div class="col-4">
-              <div class="centerBox">
-                  <div class="centerBoxTop">
-                    <a href="#">{{business}}</a>
-                  </div>
-                  <div class="container-fluid noPaddingMargin">
-                    <div class="row noPaddingMargin">
-                      <div class="col-6">
-                        <div class="boxItem"><a href="#">activities</a></div>
-                        <div class="boxItem"><a href="#">artist</a></div>
-                        <div class="boxItem"><a href="#">childcare</a></div>
-                        <div class="boxItem"><a href="#">classes</a></div>
-                        <div class="boxItem"><a href="#">events</a></div>
-                        <div class="boxItem"><a href="#">general</a></div>
-                        <div class="boxItem"><a href="#">groups</a></div>
-                      </div>
-                      <div class="col-6">
-                        <div class="boxItem"><a href="#">news</a></div>
-                        <div class="boxItem"><a href="#">lost+found</a></div>
-                        <div class="boxItem"><a href="#">musicians</a></div>
-                        <div class="boxItem"><a href="#">pets</a></div>
-                        <div class="boxItem"><a href="#">politics</a></div> 
-                        <div class="boxItem"><a href="#">rideshare</a></div> 
-                        <div class="boxItem"><a href="#">volunteers</a></div> 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-            </div>
-          </div>
+          </div>  
 
-          <div class="row">
-              <div class="col-4">
-                <div class="centerBox">
-                  <div class="centerBoxTop">
-                    <a href="#">{{business}}</a>
+          <div class="col-4">
+            <div class="centerBox">
+              <div class="centerBoxTop">
+                <a href="#">services</a>
+              </div>
+              <div class="container-fluid noPaddingMargin">
+                <div class="row noPaddingMargin">
+                  <div class="col-6" *ngFor="let subcategories of subcategories?.services?.categoryName">
+                      <div class="boxItem"><a href="#">{{subcategories}}</a></div>
                   </div>
-                  <div class="container-fluid noPaddingMargin">
-                    <div class="row noPaddingMargin">
-                      <div class="col-6">
-                        <div class="boxItem"><a href="#">activities</a></div>
-                        <div class="boxItem"><a href="#">artist</a></div>
-                        <div class="boxItem"><a href="#">childcare</a></div>
-                        <div class="boxItem"><a href="#">classes</a></div>
-                        <div class="boxItem"><a href="#">events</a></div>
-                        <div class="boxItem"><a href="#">general</a></div>
-                        <div class="boxItem"><a href="#">groups</a></div>
-                      </div>
-                      <div class="col-6">
-                        <div class="boxItem"><a href="#">news</a></div>
-                        <div class="boxItem"><a href="#">lost+found</a></div>
-                        <div class="boxItem"><a href="#">musicians</a></div>
-                        <div class="boxItem"><a href="#">pets</a></div>
-                        <div class="boxItem"><a href="#">politics</a></div> 
-                        <div class="boxItem"><a href="#">rideshare</a></div> 
-                        <div class="boxItem"><a href="#">volunteers</a></div> 
-                      </div>
-                    </div>
+                  <div class="col-6">
+                      <div class="boxItem"><a href="#">{{subcategories}}</a></div>
                   </div>
                 </div>
               </div>
-              <div class="col-4">
-                <div class="centerBox">
-                    <div class="centerBoxTop">
-                      <a href="#">{{business}}</a>
-                    </div>
-                    <div class="container-fluid noPaddingMargin">
-                      <div class="row noPaddingMargin">
-                        <div class="col-6">
-                          <div class="boxItem"><a href="#">activities</a></div>
-                          <div class="boxItem"><a href="#">artist</a></div>
-                          <div class="boxItem"><a href="#">childcare</a></div>
-                          <div class="boxItem"><a href="#">classes</a></div>
-                          <div class="boxItem"><a href="#">events</a></div>
-                          <div class="boxItem"><a href="#">general</a></div>
-                          <div class="boxItem"><a href="#">groups</a></div>
-                        </div>
-                        <div class="col-6">
-                          <div class="boxItem"><a href="#">news</a></div>
-                          <div class="boxItem"><a href="#">lost+found</a></div>
-                          <div class="boxItem"><a href="#">musicians</a></div>
-                          <div class="boxItem"><a href="#">pets</a></div>
-                          <div class="boxItem"><a href="#">politics</a></div> 
-                          <div class="boxItem"><a href="#">rideshare</a></div> 
-                          <div class="boxItem"><a href="#">volunteers</a></div> 
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            </div>
+            <div class="centerBox">
+              <div class="centerBoxTop">
+                <a href="#">gigs</a>
               </div>
-              <div class="col-4">
-                <div class="centerBox">
-                    <div class="centerBoxTop">
-                      <a href="#">{{business}}</a>
-                    </div>
-                    <div class="container-fluid noPaddingMargin">
-                      <div class="row noPaddingMargin">
-                        <div class="col-6">
-                          <div class="boxItem"><a href="#">activities</a></div>
-                          <div class="boxItem"><a href="#">artist</a></div>
-                          <div class="boxItem"><a href="#">childcare</a></div>
-                          <div class="boxItem"><a href="#">classes</a></div>
-                          <div class="boxItem"><a href="#">events</a></div>
-                          <div class="boxItem"><a href="#">general</a></div>
-                          <div class="boxItem"><a href="#">groups</a></div>
-                        </div>
-                        <div class="col-6">
-                          <div class="boxItem"><a href="#">news</a></div>
-                          <div class="boxItem"><a href="#">lost+found</a></div>
-                          <div class="boxItem"><a href="#">musicians</a></div>
-                          <div class="boxItem"><a href="#">pets</a></div>
-                          <div class="boxItem"><a href="#">politics</a></div> 
-                          <div class="boxItem"><a href="#">rideshare</a></div> 
-                          <div class="boxItem"><a href="#">volunteers</a></div> 
-                        </div>
-                      </div>
-                    </div>
+              <div class="container-fluid noPaddingMargin">
+                <div class="row noPaddingMargin">
+                  <div class="col-6" *ngFor="let subcategories of subcategories?.gigs?.categoryName">
+                      <div class="boxItem"><a href="#">{{subcategories}}</a></div>
                   </div>
+                  <div class="col-6">
+                      <div class="boxItem"><a href="#">{{subcategories}}</a></div>
+                  </div>
+                </div>
               </div>
             </div>
+          </div>  
+        </div>
       </div>
     </div>
 

@@ -16,8 +16,10 @@ export class MainpageComponent implements OnInit {
   private mainCategoriesName; 
   
   //subcategories data
-  private subcategories = new Array();
-  private subCounter = '0';
+  private subcategories: any[]= [];
+  private test;
+  private subCounter = 0;
+  allDataFetched: boolean = false;
   constructor(private router:Router, private http: HttpClient, private session:SessionsService) { }
 
   ngOnInit() {
@@ -37,9 +39,10 @@ export class MainpageComponent implements OnInit {
           this.mainCategoriesID = res['categoryID'];
           this.mainCategoriesName = res['categoryName'];
           for(let i = 0; i< this.mainCategoriesID.length; i++) {
-            this.pullSubCategories(i);
+            this.pullSubCategories(this.mainCategoriesID[i], this.mainCategoriesName[i]);
           }
-          console.log(res);
+          this.allDataFetched = true; 
+          console.log(this.subcategories);
         }
       },
       err => {
@@ -49,16 +52,13 @@ export class MainpageComponent implements OnInit {
     );
   }
 
-  pullSubCategories(categoryID) {
+  pullSubCategories(categoryID, name) {
     let data = {'categoryID' : categoryID};
     this.http.post('http://127.0.0.1/notcraigs/getSubCategories.php', data)
     .subscribe(
       (res) => {
         if(res.toString() != "") {
-          var counter = this.subCounter;
-          this.subcategories[counter] = res;
-          this.subCounter = counter;
-          console.log(res);
+          this.subcategories[name] = res;
         }
       },
       err => {
@@ -67,5 +67,4 @@ export class MainpageComponent implements OnInit {
       }
     );
   }
-
 }
