@@ -10,12 +10,13 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { LoginPortalComponent } from './login/login-portal/login-portal.component';
 
 
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { CalendarComponent } from './mainpage/calendar-test/calendar.component';
 
 
-const appRoutes:Routes = [
+const appRoutes: Routes = [
   {
     path: '',
     component: MainpageComponent,
@@ -23,15 +24,20 @@ const appRoutes:Routes = [
   {
     path: 'login',
     component: LoginPortalComponent,
+  },
+  {
+    path: 'calendar',
+    component: CalendarComponent,
   }
-]
+];
 
 
 @NgModule({
   declarations: [
     AppComponent,
     MainpageComponent,
-    LoginPortalComponent
+    LoginPortalComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
