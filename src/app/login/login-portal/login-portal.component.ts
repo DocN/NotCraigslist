@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import * as crypto from 'crypto-js';
+import { SessionsService } from '../../sessions.service';
 
 @Component({
   selector: 'app-login-portal',
@@ -16,7 +17,7 @@ export class LoginPortalComponent implements OnInit {
   private password;
   warningMessage = '';
 
-  constructor(private router:Router, private http: HttpClient) { }
+  constructor(private router:Router, private http: HttpClient, private session:SessionsService) { }
 
   ngOnInit() {
   }
@@ -32,7 +33,7 @@ export class LoginPortalComponent implements OnInit {
     console.log(encryptionKey.toString());
     //store data for transport
     let data = {'epassword': encryptionKey.toString(), 'userName': username, 'userId': 1};
-    this.http.post('http://127.0.0.1/meme/login.php', data)
+    this.http.post('http://127.0.0.1/notcraigs/login.php', data)
       .subscribe(
         (res) => {
           if(res.toString() != "") {
@@ -47,9 +48,9 @@ export class LoginPortalComponent implements OnInit {
             }
             console.log(res);
             //store session data
-            //this.session.loginSession(res);
+            this.session.loginSession(res);
             var element = document.getElementById("warning");
-            element.style.color = "green";
+            //element.style.color = "green";
             //finish loading release load spinner
             this.warningMessage = "Success!";
             //this.router.navigate(['/login']);
@@ -59,8 +60,7 @@ export class LoginPortalComponent implements OnInit {
           console.log(err);
           //finish loading
         }
-      );
-
+    );
   }
 
 }

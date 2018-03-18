@@ -14,6 +14,8 @@ import { FormsModule }   from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
+//sessions
+import { SessionsService } from './sessions.service';
 
 const appRoutes:Routes = [
   {
@@ -42,7 +44,9 @@ const appRoutes:Routes = [
     HttpModule,
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
-  providers: [],
+  providers: [
+    SessionsService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
