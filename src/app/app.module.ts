@@ -16,6 +16,12 @@ import { HttpModule } from '@angular/http';
 
 //sessions
 import { SessionsService } from './sessions.service';
+import { PostmainComponent } from './postwizard/postmain/postmain.component';
+import { DashmainComponent } from './dashboard/dashmain/dashmain.component';
+import { DashnavComponent } from './dashboard/dashnav/dashnav.component';
+import { LogoutComponent } from './login/logout/logout.component';
+import { DashpostingComponent } from './dashboard/dashposting/dashposting.component';
+import { StandardnavbarComponent } from './standardnavbar/standardnavbar.component';
 
 const appRoutes:Routes = [
   {
@@ -25,6 +31,18 @@ const appRoutes:Routes = [
   {
     path: 'login',
     component: LoginPortalComponent,
+  },
+  {
+    path: 'post',
+    component: PostmainComponent
+  },
+  {
+    path: 'dashboard',
+    component: DashmainComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent
   }
 ]
 
@@ -33,7 +51,13 @@ const appRoutes:Routes = [
   declarations: [
     AppComponent,
     MainpageComponent,
-    LoginPortalComponent
+    LoginPortalComponent,
+    PostmainComponent,
+    DashmainComponent,
+    DashnavComponent,
+    LogoutComponent,
+    DashpostingComponent,
+    StandardnavbarComponent
   ],
   imports: [
     BrowserModule,

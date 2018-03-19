@@ -1,0 +1,51 @@
+.spacingTop {
+    margin-top:20px;
+}
+
+.menu {
+    margin-left:10px;
+    width:100%;
+}
+
+.menuItem {
+    margin-left:5px;
+}
+
+.antispacingTop {
+    margin-top:-12px;
+    margin-bottom:0px;
+    margin-left:0px;
+    margin-right:0px;
+    background-color:#f7f7f7;
+    width:100%;
+    height:100px;
+}
+.ZeroFragBorder {
+    border-right-width:0px;
+    border-top-width:0px;
+    border-left-width:1px;
+    border-bottom-width:1px;
+    border-style:solid;
+    border-color:black;
+}
+.firstFragBorder {
+    border-right-width:0px;
+    border-top-width:0px;
+    border-left-width:0px;
+    border-bottom-width:1px;
+    border-style:solid;
+    border-color:black;
+}
+
+.secondFragBorder {
+    border-right-width:1px;
+    border-top-width:0px;
+    border-left-width:0px;
+    border-bottom-width:1px;
+    border-style:solid;
+    border-color:black;   
+}
+
+.menuTitle {
+    font-weight:bold;
+}

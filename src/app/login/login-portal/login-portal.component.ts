@@ -20,6 +20,10 @@ export class LoginPortalComponent implements OnInit {
   constructor(private router:Router, private http: HttpClient, private session:SessionsService) { }
 
   ngOnInit() {
+    console.log(this.session.returnUsername());
+    if(this.session.checkLoginStatus() == 1) {
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   login() {
@@ -53,7 +57,7 @@ export class LoginPortalComponent implements OnInit {
             //element.style.color = "green";
             //finish loading release load spinner
             this.warningMessage = "Success!";
-            //this.router.navigate(['/login']);
+            this.router.navigate(['/dashboard']);
           }
         },
         err => {
