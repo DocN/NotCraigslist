@@ -11,6 +11,7 @@ export class SessionsService {
   private authed;
   private balance;
   private avatarurl;
+  private city = 'vancouver';
   public sessUpdate = new Subject<number>();
 
   constructor() { 
@@ -67,6 +68,9 @@ export class SessionsService {
   }
   returnAvatar() {
     return this.avatarurl;
+  }
+  returnCity() {
+    return this.city;
   }
   checkLoginStatus() {
     return this.loggedOn;

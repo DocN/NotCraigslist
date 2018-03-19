@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <div class="row navbar">
+    <div class="col-6">
+        <div class="pull-left"><a href="#"><div class="logo">ncl</div></a></div>
+        <div class="logoLeftItem pull-left">{{city}} ></div>
+    </div>
+    <div class="col-6" *ngIf="loginstatus;else notLogged">
+      <div class= "logoutlink pull-right"><a href="#/logout">[log out]</a></div>
+      <div class= "username pull-right"><a href="#/dashboard">logged in as [{{username}}]</a></div>
+    </div>
+    <ng-template #notLogged>
+        <div class="col-6">
+            <div class= "logoutlink pull-right"><a href="#/login">[create account]</a></div>
+            <div class= "username pull-right"><a href="#/login">[log in]</a></div>
+          </div>
+    </ng-template>
+  </div>
+</div>
