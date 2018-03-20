@@ -39,7 +39,12 @@ export class PostmainComponent implements OnInit {
   private jobCheckedNonprofit = false;
   private jobCheckedTelecommuting = false;
   private jobcompensationDescription;
+  private jobCompanyName;
 
+
+  //contact info post
+  private email1;
+  private email2;
   ngOnInit() {
     this.currentCity = this.session.returnCity();
     this.currentState = this.session.returnState();
@@ -183,5 +188,15 @@ export class PostmainComponent implements OnInit {
   }
   setJobCompensation($event) {
     this.jobcompensationDescription = $event;
+  }
+
+  setEmail1($event) {
+    this.email1 = $event;
+  }
+  setEmail2($event) {
+    this.email2 = $event;
+  }
+  setJobCompanyName($event) {
+    this.jobCompanyName = $event;
   }
 }

@@ -164,6 +164,40 @@
                 <input #jobCompensation id="jobCompensation" type="text" (keyup)="setJobCompensation(jobCompensation.value)">
             </div>
         </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="postingformTitleBlack">company name: </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <input #jobCompanyName id="jobCompanyName" type="text" (keyup)="setJobCompanyName(jobCompanyName.value)">
+            </div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="jobpostdetailTitle">contact info</div>
+            </div>
+        </div>
+        <div class="row contactInfo">
+            <div class="col-4">
+                <div class="row">
+                    <div class="bracketedTextSpacingSmall"></div>
+                </div>
+                <div class="row col4Padding">
+                    <div class="postformGreen">email</div>
+                </div>
+                <div class="row">
+                    <input #email1 id="email1" class="emailInput" type="text" (keyup)="setEmail1(email1.value)">
+                </div>
+                <div class="row">
+                    <input #email2 id="email2" class="emailInput" type="text" (keyup)="setEmail2(email2.value)"> 
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 

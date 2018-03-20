@@ -125,7 +125,6 @@ a {
 }
 
 .bottomBar {
-    position: absolute;
     bottom:0px;
     background-color:#eeeeee;
     height:30px;
