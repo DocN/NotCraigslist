@@ -123,3 +123,18 @@
 a {
     color:blue;
 }
+
+.bottomBar {
+    position: absolute;
+    bottom:0px;
+    background-color:#eeeeee;
+    height:30px;
+}
+.bottomMenu {
+    text-align:center;
+}
+.bottomItem {
+    text-align:center;
+    padding-top:5px;
+    margin-left:5px;
+}

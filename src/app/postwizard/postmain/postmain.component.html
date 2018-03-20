@@ -1,75 +1,170 @@
 <app-standardnavbar></app-standardnavbar>
 
-<!-- first wizard -->
-<div class="container spacing">
-    <div class="col-12">
-        <div class="row">
-            please limit each posting to a single area and category, once per 48 hours
+<div *ngIf="this.mainType == -1">
+    <!-- first wizard -->
+    <div class="container spacing">
+        <div class="col-12">
+            <div class="row">
+                please limit each posting to a single area and category, once per 48 hours
+            </div>
+            <div class="row">
+                <div class="bracketedTextSpacing"></div>
+                <div class="nonbracketText">what type of posting is this: </div>
+                <div class="bracketedText">(see <a href="#" class="underline">prohibited</a> list before posting.)</div>
+            </div>
+            <div class="row">
+                <div class="bracketedTextSpacing"></div>
+            </div>
+            <div class="menu" *ngFor="let categories of mainCategoriesName;let i = index">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <div id="mainCategory{{i}}" class="option" (click)="optionSelector($event)">{{categories}}</div>
+                    <div *ngIf="i == 2 || i == 4 || i == 8 || i == 9  || i == 10">
+                        <div class="bracketedTextSpacing">&nbsp;</div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <div class="bracketedTextSpacing"></div>
-            <div class="nonbracketText">what type of posting is this: </div>
-            <div class="bracketedText">(see <a href="#" class="underline">prohibited</a> list before posting.)</div>
-        </div>
-        <div class="row">
-            <div class="bracketedTextSpacing"></div>
-        </div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="option">job offered</div>
-        </div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="option">gig offered</div>
-        </div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="option">resume / job wanted</div>
-        </div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="option">housing offered</div>
-        </div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="option">housing wanted</div>
-        </div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="option">housing wanted</div>
-        </div>
-        <div class="row">
-            <div class="bracketedTextSpacing"></div>
-        </div>
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="option">for sale by owner</div>
-        </div>  
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="option">for sale by dealer</div>
-        </div>    
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="option">wanted by owner</div>
-        </div>  
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="option">wanted by dealer</div>
-        </div>
-        <div class="row">
-            <div class="bracketedTextSpacing"></div>
-        </div>  
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="option">service offered</div>
-        </div>   
-        <div class="row">
-            <div class="bracketedTextSpacing"></div>
-        </div>  
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="option">personal / romance</div>
-        </div>           
     </div>
 </div>
+
+<!-- job offered selection -->
+<div *ngIf="this.mainType == 0 && this.activateJobPost == 0">
+    <div class="container spacing2">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="jobPriceHeader">Price: {{jobPriceTotal}} USD per category selected [<a href="#">?</a>]</div>
+                </div>
+                <div class="row">
+                    <div class="bracketedTextSpacingSmall"></div>
+                </div>
+                <div class="row">
+                    <div class="jobPostingLocation">You are posting to <b>{{currentCity}}, {{currentState}}.</b> (<a href="#">change location</a>)</div>
+                </div>
+                <div class="row">
+                    <div class="bracketedTextSpacingSmall"></div>
+                </div>
+                <div class="row">
+                        <div class="boldText">select one or more categories.</div> <div class="bracketedText">(see <a href="#"> prohibited </a>  list before posting.)</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
+        <div class="menu" *ngFor="let communityNameChoices of jobChoicesName;let i = index">
+            <div class="row">
+                <div class="option optionMarginLeft"><label><input id="jobChoice{{i}}" type="checkbox"  (change)="checkedJobChoice($event)"/> {{communityNameChoices}}</label></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
+        <div class="row">
+            <div class="jobPriceHeader">Price: {{jobPriceTotal}} USD per category selected [<a href="#">?</a>]</div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacingSmall"></div>
+        </div>
+        <div class="row">
+            <div class="jobPostingLocation">You are posting to <b>{{currentCity}}, {{currentState}}.</b> (<a href="#">change location</a>)</div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacingSmall"></div>
+        </div>
+        <div class="row">
+            <button (click)="jobContinue($event)">continue</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="this.mainType == 0 && this.activateJobPost == 1">
+    <div class="container">
+        <div class="row">
+            <div class="spacing"></div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="postformGreen">posting title</div>
+            </div>
+            <div class="col-3">
+                <div class="postingformTitleBlack">specific location</div>
+            </div>
+            <div class="col-3">
+                <div class="postformGreen">postal code</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <input #jobTitle id="jobTitle" type="text" (keyup)="setJobPostingTitle(jobTitle.value)">
+            </div>
+            <div class="col-3">
+                <input #jobLocationTitle id="jobLocationTitle" type="text" (keyup)="setJobLocationTitle(jobLocationTitle.value)">
+            </div>
+            <div class="col-3">
+                <input #jobZipcodeTitle id="jobZipcodeTitle" type="text" (keyup)="setJobZipcodeTitle(jobZipcodeTitle.value)">
+            </div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="postformGreen">posting body</div>
+            </div>
+            <div class="col-6">
+                <div class="warningPostBody pull-right">only one job description per posting please. <br>Please see our FAQ for job posters. <a href="#">[?]</a></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <textarea  class="bodyTextHeight" #jobBodyDescription id="jobBodyDescription" type="text" (keyup)="setJobBodyDescription(jobBodyDescription.value)"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="jobpostdetailTitle">posting details</div>
+            </div>
+        </div>
+        <div class="row jobPostingDetails">
+            <div class="col-12">
+                <div class="row"><div class="bracketedTextSpacing"></div></div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="postformGreen">employment type</div>
+                        <select>
+                            <option value="fulltime">full-time</option>
+                            <option value="parttime">part-time</option>
+                            <option value="contract">contract</option>
+                            <option value="employeechoice">employee's choice</option>
+                        </select>     
+                    </div>
+                </div>
+                <div class="row"><div class="bracketedTextSpacingSmall"></div></div>
+                <div class="row">
+                    <div class="postingTypeText"><label>direct contact by recruiters is okay<br><input type="checkbox"  (change)="checkedDirectContact()"/></label></div>
+                    <div class="postingTypeText"><label>internship<br><input type="checkbox"  (change)="checkedInternship()"/></label></div>
+                    <div class="postingTypeText"><label>non-profit organization<br><input type="checkbox"  (change)="checkedNonProfit()"/></label></div>
+                    <div class="postingTypeText"><label>telecommuting okay?<br><input type="checkbox"  (change)="checkTelecommuting()"/></label></div>
+                </div>
+            </div>
+        </div>
+        <div class="row"><div class="bracketedTextSpacing"></div></div>
+        <div class="row">
+            <div class="col-12">
+                <div class="postformGreen">compensation &nbsp;&nbsp;&nbsp;&nbsp; please be as detailed as possible</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <input #jobCompensation id="jobCompensation" type="text" (keyup)="setJobCompensation(jobCompensation.value)">
+            </div>
+        </div>
+    </div>
+</div>
+
+

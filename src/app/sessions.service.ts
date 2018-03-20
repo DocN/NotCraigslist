@@ -12,6 +12,7 @@ export class SessionsService {
   private balance;
   private avatarurl;
   private city = 'vancouver';
+  private state = 'BC';
   public sessUpdate = new Subject<number>();
 
   constructor() { 
@@ -71,6 +72,9 @@ export class SessionsService {
   }
   returnCity() {
     return this.city;
+  }
+  returnState() {
+    return this.state;
   }
   checkLoginStatus() {
     return this.loggedOn;
