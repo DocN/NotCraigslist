@@ -1,5 +1,4 @@
 <app-standardnavbar></app-standardnavbar>
-
 <div *ngIf="this.mainType == -1">
     <!-- first wizard -->
     <div class="container spacing">
@@ -76,10 +75,20 @@
         <div class="row">
             <button (click)="jobContinue($event)">continue</button>
         </div>
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
     </div>
 </div>
 
 <div *ngIf="this.mainType == 0 && this.activateJobPost == 1">
+    <div class="container">
+        <div *ngFor="let warning of warningString;let i = index">
+            <div class="row warningText">
+                {{warning}}
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="spacing"></div>
@@ -183,7 +192,7 @@
             </div>
         </div>
         <div class="row contactInfo">
-            <div class="col-4">
+            <div class="col-5">
                 <div class="row">
                     <div class="bracketedTextSpacingSmall"></div>
                 </div>
@@ -196,9 +205,86 @@
                 <div class="row">
                     <input #email2 id="email2" class="emailInput" type="text" (keyup)="setEmail2(email2.value)"> 
                 </div>
+                <div class="row">
+                    <div class="bracketedTextSpacing"></div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="contactBy">users can also contact me by:</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="bracketedTextSpacingSmall"></div>
+                </div>
+                <div class="row">
+                    <div class="option optionMarginLeft"><label><input id="byphone" type="checkbox"  (change)="checkedByPhone()"/> by phone</label></div>
+                    <div class="option optionMarginLeft"><label><input id="bytext" type="checkbox"  (change)="checkedByText()"/> by text</label></div>
+                </div>
+            </div>
+            <div class="col-6 col4Padding">
+                    <div class="row">
+                        <div class="bracketedTextSpacing"></div>
+                    </div>
+                <div class="row">
+                    <div class="pickMenu">
+                        <form>
+                            <input type="radio" name="gender" value="CL mail relay (recommended)" checked> CL mail relay (recommended)<br>
+                            <input type="radio" name="gender" value="show my real email address"> show my real email address<br>
+                            <input type="radio" name="gender" value="no replies to this email"> no replies to this email
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="bracketedTextSpacing"></div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="contactInfosTitle">phone number </div>
+                        </div>
+                        <div class="row">
+                            <input class="inputboxbackground" #postPhoneNumber id="postPhoneNumber" type="text" (keyup)="setPostPhoneNumber(postPhoneNumber.value)">
+                        </div>
+                    </div>
+                    <div class="col-3 pickMenu">
+                        <div class="row">
+                            <div class="contactInfosTitle">extension </div>
+                        </div>
+                        <div class="row">
+                            <input class="inputboxbackground" #postExtension id="postExtension" type="text" (keyup)="setPostExtension(postExtension.value)">
+                        </div>
+                    </div>
+                    <div class="col-4 pickMenu">
+                        <div class="row">
+                            <div class="contactInfosTitle">contact name </div>
+                        </div>
+                        <div class="row">
+                            <input class="inputboxbackground" #postContactName id="postContactName" type="text" (keyup)="setPostContactName(postContactName.value)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="bracketedTextSpacing"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
+        <div class="row">
+            <div class="option optionMarginLeft"><label><input id="bytext" type="checkbox"  (change)="checkedByText($event)"/> ok to highlight this job opening for persons with disabilities <a href="#">[?]</a></label></div>
+        </div>
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col-2">
+                <button class="continueButton pull-right" (click)="tryContinueJob($event)">Continue</button>
             </div>
         </div>
     </div>
 </div>
 
+
+<div *ngIf="this.mainType == 0 && this.activateJobPost == 2">
+
+</div>
 

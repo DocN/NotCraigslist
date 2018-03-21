@@ -108,6 +108,9 @@ input[type=text]:focus {
     margin:0;
     padding:0;
     background-color:#eeeeee;
+    border-color:grey;
+    border-style: solid;
+    border-width:1px;
 }
 
 .emailInput {
@@ -120,4 +123,33 @@ input[type=text]:focus {
 .col4Padding {
     margin-left:5px;
 }
+
+.contactBy {
+    margin-left:5px;
+    font-weight:bold;
+}
+
+.pickMenu {
+    margin-left:10px;
+}
+
+.contactInfosTitle {
+    color:black;
+    font-weight:bold;
+}
+
+.inputboxbackground {
+    background-color:white;
+}
+
+.continueButton {
+    font-size:20px;
+} 
+
+.warningText {
+    font-size:20px;
+    font-weight:bold;
+    color:red;
+}
+
 

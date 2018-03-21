@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SessionsService } from '../../sessions.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { isDefined } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-postmain',
@@ -45,6 +46,14 @@ export class PostmainComponent implements OnInit {
   //contact info post
   private email1;
   private email2;
+  private phoneNumber;
+  private postExtension;
+  private postContactName;
+  private postCheckDisabled = false;
+  private byphoneVal = false;
+  private byTextVal = false;
+  private warningString = new Array();
+  
   ngOnInit() {
     this.currentCity = this.session.returnCity();
     this.currentState = this.session.returnState();
@@ -199,4 +208,108 @@ export class PostmainComponent implements OnInit {
   setJobCompanyName($event) {
     this.jobCompanyName = $event;
   }
+
+  setPostPhoneNumber($event) {
+    this.phoneNumber = $event;
+  }
+
+  setPostExtension($event) {
+    this.postExtension = $event;
+  }
+
+  setPostContactName($event) {
+    this.postContactName = $event;
+  }
+
+  checkDisabled($event) {
+    if(this.postCheckDisabled == true) {
+      this.postCheckDisabled = false;
+    }
+    else {
+      this.postCheckDisabled = true;
+    }
+  }
+
+  checkedByPhone() {
+    if(this.byphoneVal == true) {
+      this.byphoneVal = false;
+    }
+    else {
+      this.byphoneVal = true;
+    }
+  }
+
+  checkedByText() {
+    if(this.byTextVal == true) {
+      this.byTextVal = false;
+    }
+    else {
+      this.byTextVal = true;
+    }   
+  }
+
+  checkAllValidJob() {
+    var valid = true;
+    this.warningString = new Array();
+    let i = 0;
+    if(this.checkDefined(this.email1) == false) {
+      this.warningString[i] = "please enter an email \n ";
+      i++;
+      valid=false;
+    }
+    if(this.checkDefined(this.postContactName) == false) {
+      this.warningString[i] = "please enter a contact name \n ";
+      i++;
+      console.log(5);
+      valid=false;
+    }
+    if(this.checkDefined(this.jobPostingTitle) == false) {
+      this.warningString[i] = "please enter a job title \n ";
+      i++;
+      valid=false;
+    }
+    if(this.checkDefined(this.jobLocationTitle) == false) {
+      this.warningString[i] = "please enter a job location  \n ";
+      i++;
+      valid=false;
+    }
+    if(this.checkDefined(this.jobZipcodeTitle) == false) {
+      this.warningString[i] = "please enter a zip code \n ";
+      i++;
+      valid=false;
+    }
+    if(this.checkDefined(this.jobBodyDescription) == false) {
+      this.warningString[i] = "please enter a job description  \n ";
+      i++;
+      valid=false;
+    }
+    if(this.checkDefined(this.jobCompanyName) == false) {
+      this.warningString[i] = "please enter a company name \n ";
+      i++;
+      valid=false;
+    }
+    return valid;
+  }
+
+  checkDefined ($data) {
+    if($data == undefined){
+      return false;
+    }
+    else {
+      if($data.length == 0) {
+        return false;
+      }
+      return true;
+    }
+  }
+  tryContinueJob($event) {
+    if(this.checkAllValidJob() == true) {
+      this.activateJobPost = 2;
+    }
+    else {
+      window.scroll(0,0);
+    }
+  }
+
+
 }
