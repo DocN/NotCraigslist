@@ -46,6 +46,7 @@ export class PostmainComponent implements OnInit {
   //contact info post
   private email1;
   private email2;
+  private emailRadioChoice = 1;
   private phoneNumber;
   private postExtension;
   private postContactName;
@@ -309,6 +310,22 @@ export class PostmainComponent implements OnInit {
     else {
       window.scroll(0,0);
     }
+  }
+
+  emailChoice($event) {
+    var choiceName1 = "emailChoice1";
+    var choiceName2 = "emailChoice2";
+    var choiceName3 = "emailChoice3";
+    if($event.srcElement.id == choiceName1) {
+      this.emailRadioChoice = 1;
+    }
+    else if($event.srcElement.id == choiceName2) {
+      this.emailRadioChoice = 2;
+    }
+    else if($event.srcElement.id == choiceName3) {
+      this.emailRadioChoice = 3;
+    }
+    console.log(this.emailRadioChoice);
   }
 
 

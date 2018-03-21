@@ -84,12 +84,12 @@
 <div *ngIf="this.mainType == 0 && this.activateJobPost == 1">
     <div class="container">
         <div *ngFor="let warning of warningString;let i = index">
-            <div class="row warningText">
-                {{warning}}
+            <div class="col-12">
+                <div class="row warningText">
+                    {{warning}}
+                </div>
             </div>
         </div>
-    </div>
-    <div class="container">
         <div class="row">
             <div class="spacing"></div>
         </div>
@@ -228,9 +228,9 @@
                 <div class="row">
                     <div class="pickMenu">
                         <form>
-                            <input type="radio" name="gender" value="CL mail relay (recommended)" checked> CL mail relay (recommended)<br>
-                            <input type="radio" name="gender" value="show my real email address"> show my real email address<br>
-                            <input type="radio" name="gender" value="no replies to this email"> no replies to this email
+                            <label><input id="emailChoice1" type="radio" name="emailChoice" value="NCL mail relay (recommended)" checked (change)="emailChoice($event)"> CL mail relay (recommended)</label><br>
+                            <label><input id="emailChoice2" type="radio" name="emailChoice" value="show my real email address" (change)="emailChoice($event)"> show my real email address</label><br>
+                            <label><input id="emailChoice3" type="radio" name="emailChoice" value="no replies to this email" (change)="emailChoice($event)"> no replies to this email</label>
                         </form>
                     </div>
                 </div>

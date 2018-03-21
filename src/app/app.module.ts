@@ -23,6 +23,7 @@ import { LogoutComponent } from './login/logout/logout.component';
 import { DashpostingComponent } from './dashboard/dashposting/dashposting.component';
 import { StandardnavbarComponent } from './standardnavbar/standardnavbar.component';
 
+
 const appRoutes:Routes = [
   {
     path: '',
@@ -57,7 +58,7 @@ const appRoutes:Routes = [
     DashnavComponent,
     LogoutComponent,
     DashpostingComponent,
-    StandardnavbarComponent
+    StandardnavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +66,7 @@ const appRoutes:Routes = [
     RouterModule.forRoot(appRoutes, {useHash:true}),
     FormsModule,
     HttpClientModule,
-    HttpModule,
+    HttpModule, 
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
