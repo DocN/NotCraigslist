@@ -293,7 +293,7 @@
 <!-- Upload Image Fragment -->
 <div *ngIf="this.mainType == 0 && this.activateJobPost == 3">
         Select image to upload:
-        <input type="file" (change)="uploadAnImage($event)">
+        <input name="fileToUpload" type="file" (change)="uploadAnImage($event)">
 </div>
 
 

@@ -339,9 +339,12 @@ export class PostmainComponent implements OnInit {
 
   uploadAnImage($event) {
     console.log($event);
-    /*
-    let data = {};
-    this.http.post('http://127.0.0.1/notcraigs/upload.php', data)
+    var file = $event.target.files[0];
+
+    let formData = new FormData();
+      formData.append('file', file);
+    
+    this.http.post('http://127.0.0.1/notcraigs/upload.php',formData)
     .subscribe(
       (res) => {
         if(res.toString() != "") {
@@ -353,6 +356,5 @@ export class PostmainComponent implements OnInit {
         //finish loading
       }
     );
-    */
   }
 }
