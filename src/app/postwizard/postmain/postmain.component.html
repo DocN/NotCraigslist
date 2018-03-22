@@ -283,8 +283,18 @@
     </div>
 </div>
 
-
+<!-- MAP FRAGMENT -->
 <div *ngIf="this.mainType == 0 && this.activateJobPost == 2">
-
+    hello
+    <div (onload)="switchToImage()"></div>
 </div>
+
+
+<!-- Upload Image Fragment -->
+<div *ngIf="this.mainType == 0 && this.activateJobPost == 3">
+        Select image to upload:
+        <input type="file" (change)="uploadAnImage($event)">
+</div>
+
+
 

@@ -12,6 +12,7 @@ import { isDefined } from '@angular/compiler/src/util';
 export class PostmainComponent implements OnInit {
 
   constructor(private router:Router, private http: HttpClient, private session:SessionsService) { }
+  private model: any = {};
   private currentCity;
   private currentState;
 
@@ -289,6 +290,10 @@ export class PostmainComponent implements OnInit {
       i++;
       valid=false;
     }
+
+    //disabled check
+    valid = true;
+
     return valid;
   }
 
@@ -305,7 +310,7 @@ export class PostmainComponent implements OnInit {
   }
   tryContinueJob($event) {
     if(this.checkAllValidJob() == true) {
-      this.activateJobPost = 2;
+      this.activateJobPost = 3;
     }
     else {
       window.scroll(0,0);
@@ -328,5 +333,26 @@ export class PostmainComponent implements OnInit {
     console.log(this.emailRadioChoice);
   }
 
+  switchToImage() {
+    this.activateJobPost = 3;
+  }
 
+  uploadAnImage($event) {
+    console.log($event);
+    /*
+    let data = {};
+    this.http.post('http://127.0.0.1/notcraigs/upload.php', data)
+    .subscribe(
+      (res) => {
+        if(res.toString() != "") {
+          console.log(res);
+        }
+      },
+      err => {
+        console.log(err);
+        //finish loading
+      }
+    );
+    */
+  }
 }
