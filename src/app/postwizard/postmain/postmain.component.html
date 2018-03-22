@@ -294,6 +294,10 @@
 <div *ngIf="this.mainType == 0 && this.activateJobPost == 3">
         Select image to upload:
         <input name="fileToUpload" type="file" (change)="uploadAnImage($event)">
+
+        <div *ngFor="let image of images;let i = index">
+            <img height="100px" width="100px" src="{{image}}">
+        </div>
 </div>
 
 

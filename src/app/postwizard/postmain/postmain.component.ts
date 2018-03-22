@@ -16,6 +16,8 @@ export class PostmainComponent implements OnInit {
   private currentCity;
   private currentState;
 
+  //image upload
+  private images = new Array();
   //wizard1
   private mainCategoryID;
   private postingTypeID;
@@ -349,6 +351,9 @@ export class PostmainComponent implements OnInit {
       (res) => {
         if(res.toString() != "") {
           console.log(res);
+          if(res['result'] == true) {
+            this.images.push(res['url']);
+          }
         }
       },
       err => {
