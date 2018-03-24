@@ -152,4 +152,38 @@ input[type=text]:focus {
     color:red;
 }
 
+.uploadbox {
+    background-color:#eeeeee;
+    padding-top:20px;
+    padding-bottom:20px;
+    border-color:grey;
+    border-style:solid;
+    border-width:1px;
+}
+
+.imageListingBoxFeatured {
+    border-color:yellow;
+    border-style:solid;
+    border-width:1px;
+    background-color:#eeeeee;
+    padding:10px;
+    width:300px;
+    height:169px;
+}
+
+.imageListingBox {
+    border-color:grey;
+    border-style:solid;
+    border-width:1px;
+    background-color:#eeeeee;
+    padding:10px;
+    width:300px;
+    height:169px;
+}
+.featuredImage {
+    position: absolute;
+    background-color:lightyellow;
+    margin-left:-10px;
+    margin-top:-10px;
+}
 

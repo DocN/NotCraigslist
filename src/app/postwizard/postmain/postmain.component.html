@@ -292,12 +292,46 @@
 
 <!-- Upload Image Fragment -->
 <div *ngIf="this.mainType == 0 && this.activateJobPost == 3">
-        Select image to upload:
-        <input name="fileToUpload" type="file" (change)="uploadAnImage($event)">
-
-        <div *ngFor="let image of images;let i = index">
-            <img height="100px" width="100px" src="{{image}}">
+    <div class="container">
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
         </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="container">
+                    <div class="row">
+                        this posting has 1 images, of a maximum 24
+                    </div>
+                    <div class="row">
+                        upload best image first — it will be featured.
+                    </div>
+                    <div class="row uploadbox">
+                        <div class="container">
+                            <div class="col-12">
+                                Select image to upload:
+                                <input name="fileToUpload" type="file" (change)="uploadAnImage($event)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div *ngFor="let image of images;let i = index">
+                            <div *ngIf="i == 0;else other">
+                                <div class="imageListingBoxFeatured">
+                                    <div class="featuredImage">Featured Image </div>
+                                    <img height="100%" width="100%" src="{{image}}">
+                                </div>
+                            </div>
+                            <ng-template #other>
+                                <div class="imageListingBox">
+                                    <img height="100%" width="100%" src="{{image}}">
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 
