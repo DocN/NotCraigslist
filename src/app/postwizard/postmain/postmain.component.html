@@ -145,7 +145,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="postformGreen">employment type</div>
-                        <select>
+                        <select (change)="setEmployType($event)">
                             <option value="fulltime">full-time</option>
                             <option value="parttime">part-time</option>
                             <option value="contract">contract</option>

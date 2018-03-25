@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionsService } from '../../sessions.service';
+import { RandomIdserviceService } from '../../random-idservice.service'
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { isDefined } from '@angular/compiler/src/util';
@@ -11,11 +12,13 @@ import { isDefined } from '@angular/compiler/src/util';
 })
 export class PostmainComponent implements OnInit {
 
-  constructor(private router:Router, private http: HttpClient, private session:SessionsService) { }
+  constructor(private router:Router, private http: HttpClient, private session:SessionsService, private idGen:RandomIdserviceService) { }
   private model: any = {};
   private currentCity;
   private currentState;
 
+  //listing post id
+  private postID;
   //image upload
   private images = new Array();
   //wizard1
@@ -44,7 +47,7 @@ export class PostmainComponent implements OnInit {
   private jobCheckedTelecommuting = false;
   private jobcompensationDescription;
   private jobCompanyName;
-
+  private employmentType = "fulltime";
 
   //contact info post
   private email1;
@@ -53,16 +56,20 @@ export class PostmainComponent implements OnInit {
   private phoneNumber;
   private postExtension;
   private postContactName;
-  private postCheckDisabled = false;
   private byphoneVal = false;
   private byTextVal = false;
   private warningString = new Array();
   
+
+  private postCheckDisabled = false;
+
   ngOnInit() {
     this.currentCity = this.session.returnCity();
     this.currentState = this.session.returnState();
     this.pullCategories();
     this.jobPriceTotal = 0.00;
+    this.postID = this.idGen.randomGenerate();
+    console.log(this.postID);
   }
 
   pullCategories() {
@@ -225,6 +232,9 @@ export class PostmainComponent implements OnInit {
     this.postContactName = $event;
   }
 
+  /*
+  enable disable post field checking
+  */
   checkDisabled($event) {
     if(this.postCheckDisabled == true) {
       this.postCheckDisabled = false;
@@ -250,6 +260,10 @@ export class PostmainComponent implements OnInit {
     else {
       this.byTextVal = true;
     }   
+  }
+
+  setEmployType($event) {
+    this.employmentType = $event.srcElement.value;
   }
 
   checkAllValidJob() {
@@ -378,6 +392,70 @@ export class PostmainComponent implements OnInit {
   }
 
   doneImageNext() {
+    this.submitJobPost();
     this.activateJobPost = 4;
+  }
+
+
+  /*
+    //listing post id
+    private postID;
+    //image upload
+    private images = new Array();
+    //wizard1
+    private mainCategoryID;
+    private postingTypeID;
+    private mainCategoriesName;
+  
+    //mainSelector
+    private mainType = -1;
+  
+    //job
+    private jobChoicesName; 
+    private jobOfferedTypeID;
+    private jobChoiceChecked = new Array();
+    private jobPriceTotal;
+    private activateJobPost = 0;
+  
+    //job final wizard page for collecting data
+    private jobPostingTitle;
+    private jobLocationTitle;
+    private jobZipcodeTitle;
+    private jobBodyDescription;
+    private jobCheckedDirectContact = false;
+    private jobCheckedInternship = false;
+    private jobCheckedNonprofit = false;
+    private jobCheckedTelecommuting = false;
+    private jobcompensationDescription;
+    private jobCompanyName;
+    private employmentType = "fulltime";
+  
+    //contact info post
+    private email1;
+    private email2;
+    private emailRadioChoice = 1;
+    private phoneNumber;
+    private postExtension;
+    private postContactName;
+    private byphoneVal = false;
+    private byTextVal = false;
+    private warningString = new Array();
+*/
+  submitJobPost() {
+    
+    let data = {'userID':this.session.returnUserID(),'postID':this.postID,'jobChoiceChecked':this.jobChoiceChecked, 'jobPriceTotal':this.jobPriceTotal, 'jobPostingTitle':this.jobPostingTitle, 'jobLocationTitle':this.jobLocationTitle, 
+    'jobZipcodeTitle':this.jobZipcodeTitle, 'jobBodyDescription':this.jobBodyDescription, 'jobCheckedDirectContact':this.jobCheckedDirectContact, 'jobCheckedInternship':this.jobCheckedInternship, 'jobCheckedNonprofit':this.jobCheckedNonprofit, 
+    'jobCheckedTelecommuting':this.jobCheckedTelecommuting, 'jobcompensationDescription':this.jobcompensationDescription, 'jobCompanyName':this.jobCompanyName, 'employmentType':this.employmentType, 'email1':this.email1, 'email2':this.email2, 
+  'emailRadioChoice':this.emailRadioChoice, 'phoneNumber':this.phoneNumber, 'postExtension':this.postExtension, 'postContactName':this.postContactName, 'byphoneVal':this.byphoneVal, 'byTextVal':this.byTextVal};
+    this.http.post('http://127.0.0.1/notcraigs/wizard/listJob/createListing.php', data)
+    .subscribe(
+      (res) => {
+        console.log("here mofo");
+      },
+      err => {
+        console.log(err);
+        //finish loading
+      }
+    );   
   }
 }

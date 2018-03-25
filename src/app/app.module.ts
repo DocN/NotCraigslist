@@ -23,6 +23,7 @@ import { LogoutComponent } from './login/logout/logout.component';
 import { DashpostingComponent } from './dashboard/dashposting/dashposting.component';
 import { StandardnavbarComponent } from './standardnavbar/standardnavbar.component';
 
+import { RandomIdserviceService } from './random-idservice.service';
 
 const appRoutes:Routes = [
   {
@@ -71,6 +72,7 @@ const appRoutes:Routes = [
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     SessionsService,
+    RandomIdserviceService,
   ],
   bootstrap: [AppComponent]
 })
