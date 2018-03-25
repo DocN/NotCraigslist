@@ -340,6 +340,9 @@ export class PostmainComponent implements OnInit {
   }
 
   uploadAnImage($event) {
+    if(this.images.length >= 24) {
+      return;
+    }
     console.log($event);
     var file = $event.target.files[0];
 
@@ -361,5 +364,20 @@ export class PostmainComponent implements OnInit {
         //finish loading
       }
     );
+  }
+
+  removeImageFromList($event) {
+    console.log($event);
+    for(let i =0; i < this.images.length; i++) {
+      var imageName = "xclosedImage" + i;
+      if(imageName == $event.srcElement.id) {
+        this.images.splice((i),1);
+        break;
+      }
+    }
+  }
+
+  doneImageNext() {
+    this.activateJobPost = 4;
   }
 }
