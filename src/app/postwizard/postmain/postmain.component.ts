@@ -41,10 +41,10 @@ export class PostmainComponent implements OnInit {
   private jobLocationTitle;
   private jobZipcodeTitle;
   private jobBodyDescription;
-  private jobCheckedDirectContact = false;
-  private jobCheckedInternship = false;
-  private jobCheckedNonprofit = false;
-  private jobCheckedTelecommuting = false;
+  private jobCheckedDirectContact = 0;
+  private jobCheckedInternship = 0;
+  private jobCheckedNonprofit = 0;
+  private jobCheckedTelecommuting = 0;
   private jobcompensationDescription;
   private jobCompanyName;
   private employmentType = "fulltime";
@@ -56,8 +56,8 @@ export class PostmainComponent implements OnInit {
   private phoneNumber;
   private postExtension;
   private postContactName;
-  private byphoneVal = false;
-  private byTextVal = false;
+  private byphoneVal = 0;
+  private byTextVal = 0;
   private warningString = new Array();
   
 
@@ -177,33 +177,33 @@ export class PostmainComponent implements OnInit {
   }
 
   checkedDirectContact() {
-    if(this.jobCheckedDirectContact == true) {
-      this.jobCheckedDirectContact = false;
+    if(this.jobCheckedDirectContact == 1) {
+      this.jobCheckedDirectContact = 0;
     }
     else {
-      this.jobCheckedDirectContact = true;
+      this.jobCheckedDirectContact = 1;
     }
   }
   checkedInternship() {
-    if(this.jobCheckedInternship == true) {
-      this.jobCheckedInternship = false;
+    if(this.jobCheckedInternship == 1) {
+      this.jobCheckedInternship = 0;
     }else {
-      this.jobCheckedInternship = true;
+      this.jobCheckedInternship = 1;
     }
   }
   checkedNonProfit() {
-    if(this.jobCheckedNonprofit == true) {
-      this.jobCheckedNonprofit = false;
+    if(this.jobCheckedNonprofit == 1) {
+      this.jobCheckedNonprofit = 0;
     }else {
-      this.jobCheckedNonprofit = true;
+      this.jobCheckedNonprofit = 1;
     }  
   }
 
   checkTelecommuting() {
-    if(this.jobCheckedTelecommuting == true) {
-      this.jobCheckedTelecommuting = false;
+    if(this.jobCheckedTelecommuting == 1) {
+      this.jobCheckedTelecommuting = 0;
     }else {
-      this.jobCheckedTelecommuting = true;
+      this.jobCheckedTelecommuting = 1;
     }     
   }
   setJobCompensation($event) {
@@ -245,20 +245,20 @@ export class PostmainComponent implements OnInit {
   }
 
   checkedByPhone() {
-    if(this.byphoneVal == true) {
-      this.byphoneVal = false;
+    if(this.byphoneVal == 1) {
+      this.byphoneVal = 0;
     }
     else {
-      this.byphoneVal = true;
+      this.byphoneVal = 1;
     }
   }
 
   checkedByText() {
-    if(this.byTextVal == true) {
-      this.byTextVal = false;
+    if(this.byTextVal == 1) {
+      this.byTextVal = 0;
     }
     else {
-      this.byTextVal = true;
+      this.byTextVal = 1;
     }   
   }
 
@@ -393,6 +393,7 @@ export class PostmainComponent implements OnInit {
 
   doneImageNext() {
     this.submitJobPost();
+    this.submitImages();
     this.activateJobPost = 4;
   }
 
@@ -442,12 +443,13 @@ export class PostmainComponent implements OnInit {
     private warningString = new Array();
 */
   submitJobPost() {
+    console.log(this.session.returnUserID());
     for(let i =0; i < this.jobChoiceChecked.length; i++) {
       if(this.jobChoiceChecked[i] == true) {
-        let data = {'jobTypeID':i,'userID':this.session.returnUserID(),'postID':this.postID,'jobChoiceChecked':this.jobChoiceChecked, 'mainCategoryID':this.mainType, 'jobPriceTotal':this.jobPriceTotal, 'jobPostingTitle':this.jobPostingTitle, 'jobLocationTitle':this.jobLocationTitle, 
+        let data = {'jobTypeID':i,'userID':this.session.returnUserID(),'postID':this.postID, 'mainCategoryID':this.mainType, 'jobPriceTotal':this.jobPriceTotal, 'jobPostingTitle':this.jobPostingTitle, 'jobLocationTitle':this.jobLocationTitle, 
         'jobZipcodeTitle':this.jobZipcodeTitle, 'jobBodyDescription':this.jobBodyDescription, 'jobCheckedDirectContact':this.jobCheckedDirectContact, 'jobCheckedInternship':this.jobCheckedInternship, 'jobCheckedNonprofit':this.jobCheckedNonprofit, 
         'jobCheckedTelecommuting':this.jobCheckedTelecommuting, 'jobcompensationDescription':this.jobcompensationDescription, 'jobCompanyName':this.jobCompanyName, 'employmentType':this.employmentType, 'email1':this.email1, 'email2':this.email2, 
-      'emailRadioChoice':this.emailRadioChoice, 'phoneNumber':this.phoneNumber, 'postExtension':this.postExtension, 'postContactName':this.postContactName, 'byphoneVal':this.byphoneVal, 'byTextVal':this.byTextVal};
+      'emailRadioChoice':this.emailRadioChoice, 'phoneNumber':this.phoneNumber, 'postExtension':this.postExtension, 'postContactName':this.postContactName, 'byphoneVal':this.byphoneVal, 'byTextVal':this.byTextVal, 'currentCity':this.currentCity};
         this.http.post('http://127.0.0.1/notcraigs/wizard/listJob/createListing.php', data)
         .subscribe(
           (res) => {
@@ -460,6 +462,22 @@ export class PostmainComponent implements OnInit {
         );   
       }
 
+    }
+  }
+
+  submitImages() {
+    for(let i =0; i < this.images.length; i++) {
+      let data = {'postID':this.postID, 'imageURL':this.images[i], 'imageNumber':i };
+      this.http.post('http://127.0.0.1/notcraigs/wizard/listJob/insertImages.php', data)
+      .subscribe(
+        (res) => {
+          console.log("here mofo");
+        },
+        err => {
+          console.log(err);
+          //finish loading
+        }
+      );  
     }
   }
 }
