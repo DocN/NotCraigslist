@@ -1,0 +1,40 @@
+.logo {
+    background-color:white;
+    border-radius: 20px;
+    font-weight:bold;
+}
+.logoTitle {
+    margin-left:10px;
+    text-align:left;
+}
+.navbar {
+    background-color:#eeeeee;
+}
+.simple footer {
+    display:none
+}
+.page-container {
+    *zoom:1;
+    min-height:100%;
+    position:relative;
+    width:100%
+}
+.page-container:before,.page-container:after {
+content:" ";
+    display:table;
+    visibility:hidden
+}
+.page-container:after {
+    clear:both
+}
+.simple-page-content {
+    font-family:"Arial",sans-serif;
+    margin:0 auto;
+    max-width:768px;
+    min-height:600px;
+    padding:1em 1em 6em 1em
+}
+
+.simple-page-content p {
+    margin-top:0
+}

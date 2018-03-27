@@ -1,0 +1,122 @@
+<!-- header -->
+<div class="container-fluid">
+    <div class="row navbar">
+      <div class="col-12">
+          <div class="row">
+              <a href="#"><div class="logo">ncl</div></a>
+              <div class="logoTitle">about > help</div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Container below the header -->
+<div class="container">
+  <!-- search bar -->
+  <div class="row  margin-top">
+    <input type="text"  class="col-6 search-field">
+    <input type="submit" class="col-2 submit-btn " value="search CL help">
+  </div>
+
+<!--Sections -->
+  <div class="row leftMargin">
+    <div class="col-4 somepadding">
+      <div class="container">
+        <div class="leftBar">
+          <div class="centerBox">
+            <div class="centerBoxTop">
+              <p><b>classified posting</b></p>
+            </div>
+            <div class="container-fluid noPaddingMargin affix">
+              <div class="row noPaddingMargin affix ">
+                <ul>
+                    <div class="col-12" *ngFor="let subcategories of subcategories?.classified?.categoryName">
+                        <div class="boxItem"><li><a href="#">{{subcategories}}</a></li></div>
+                    </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-4 somepadding">
+      <div class="leftBar">
+        <div class="centerBox">
+          <div class="centerBoxTop">
+            <p><b>paid posting</b></p>
+          </div>
+          <div class="container-fluid noPaddingMargin">
+            <div class="row noPaddingMargin">
+              <ul>
+                  <div class="col-12" *ngFor="let subcategories of subcategories?.paid?.categoryName">
+                      <div class="boxItem"><li><a href="#">{{subcategories}}</a></li></div>
+                  </div>
+              </ul>
+
+            </div>
+          </div>
+        </div>
+        <div class="centerBox">
+          <div class="centerBoxTop">
+            <p><b>avoiding scams and fraud</b></p>
+          </div>
+            <div class="container-fluid noPaddingMargin">
+              <div class="row noPaddingMargin">
+                <ul>
+                  <div class="col-12" *ngFor="let subcategories of subcategories?.scams?.categoryName">
+                      <div class="boxItem"><li><a href="#">{{subcategories}}</a></li></div>
+                  </div>
+                </ul>
+              </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row leftMargin">
+      <div class="col-4 somepadding">
+        <div class="container">
+              <div class="leftBar">
+                <div class="centerBox">
+                  <div class="centerBoxTop">
+                    <p><b> miscellaneous </b></p>
+                  </div>
+                  <div class="container-fluid noPaddingMargin affix">
+                    <div class="row noPaddingMargin affix ">
+                  <ul>
+                    <div class="col-12" *ngFor="let subcategories of subcategories?.miscellaneous?.categoryName">
+                      <div class="boxItem">
+                          <li><a href="#">{{subcategories}}</a></li>
+                      </div>
+                    </div>
+                  </ul>  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-4 somepadding">
+        <div class="leftBar">
+          <div class="centerBox">
+            <div class="centerBoxTop">
+              <p><b>LEGAL, copyright, harassment  </b></p>
+            </div>
+            <div class="container-fluid noPaddingMargin">
+              <div class="row noPaddingMargin">
+                <ul>
+                    <div class="col-12" *ngFor="let subcategories of subcategories?.legal?.categoryName">
+                        <div class="boxItem">
+                          <li><a href="#">{{subcategories}}</a></li>
+                        </div>
+                    </div>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

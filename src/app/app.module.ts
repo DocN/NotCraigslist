@@ -1,3 +1,4 @@
+import { PersonalSafety } from './documents/personalSafety/personalSafety.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -22,6 +23,10 @@ import { DashnavComponent } from './dashboard/dashnav/dashnav.component';
 import { LogoutComponent } from './login/logout/logout.component';
 import { DashpostingComponent } from './dashboard/dashposting/dashposting.component';
 import { StandardnavbarComponent } from './standardnavbar/standardnavbar.component';
+import { HelpfaqComponent } from './documents/helpfaqmenu/helpfaq.component';
+import { AboutScam } from './documents/aboutScam/aboutScam.component';
+import { PersonalSafety } from './documents/personalSafety/personalSafety.component';
+import { Terms } from './documents/terms/terms.component';
 
 const appRoutes:Routes = [
   {
@@ -43,8 +48,24 @@ const appRoutes:Routes = [
   {
     path: 'logout',
     component: LogoutComponent
+  },
+  {
+    path: 'helpfaq',
+    component: HelpfaqComponent
+  },
+  {
+    path: 'aboutScam',
+    component: AboutScam
+  },
+  {
+    path: 'personalSafety',
+    component: PersonalSafety
+  },
+  {
+    path: 'terms',
+    component: Terms
   }
-]
+];
 
 
 @NgModule({
@@ -57,7 +78,11 @@ const appRoutes:Routes = [
     DashnavComponent,
     LogoutComponent,
     DashpostingComponent,
-    StandardnavbarComponent
+    StandardnavbarComponent,
+    HelpfaqComponent,
+    AboutScam,
+    PersonalSafety,
+    Terms
   ],
   imports: [
     BrowserModule,
