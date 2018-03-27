@@ -442,20 +442,24 @@ export class PostmainComponent implements OnInit {
     private warningString = new Array();
 */
   submitJobPost() {
-    
-    let data = {'userID':this.session.returnUserID(),'postID':this.postID,'jobChoiceChecked':this.jobChoiceChecked, 'jobPriceTotal':this.jobPriceTotal, 'jobPostingTitle':this.jobPostingTitle, 'jobLocationTitle':this.jobLocationTitle, 
-    'jobZipcodeTitle':this.jobZipcodeTitle, 'jobBodyDescription':this.jobBodyDescription, 'jobCheckedDirectContact':this.jobCheckedDirectContact, 'jobCheckedInternship':this.jobCheckedInternship, 'jobCheckedNonprofit':this.jobCheckedNonprofit, 
-    'jobCheckedTelecommuting':this.jobCheckedTelecommuting, 'jobcompensationDescription':this.jobcompensationDescription, 'jobCompanyName':this.jobCompanyName, 'employmentType':this.employmentType, 'email1':this.email1, 'email2':this.email2, 
-  'emailRadioChoice':this.emailRadioChoice, 'phoneNumber':this.phoneNumber, 'postExtension':this.postExtension, 'postContactName':this.postContactName, 'byphoneVal':this.byphoneVal, 'byTextVal':this.byTextVal};
-    this.http.post('http://127.0.0.1/notcraigs/wizard/listJob/createListing.php', data)
-    .subscribe(
-      (res) => {
-        console.log("here mofo");
-      },
-      err => {
-        console.log(err);
-        //finish loading
+    for(let i =0; i < this.jobChoiceChecked.length; i++) {
+      if(this.jobChoiceChecked[i] == true) {
+        let data = {'jobTypeID':i,'userID':this.session.returnUserID(),'postID':this.postID,'jobChoiceChecked':this.jobChoiceChecked, 'mainCategoryID':this.mainType, 'jobPriceTotal':this.jobPriceTotal, 'jobPostingTitle':this.jobPostingTitle, 'jobLocationTitle':this.jobLocationTitle, 
+        'jobZipcodeTitle':this.jobZipcodeTitle, 'jobBodyDescription':this.jobBodyDescription, 'jobCheckedDirectContact':this.jobCheckedDirectContact, 'jobCheckedInternship':this.jobCheckedInternship, 'jobCheckedNonprofit':this.jobCheckedNonprofit, 
+        'jobCheckedTelecommuting':this.jobCheckedTelecommuting, 'jobcompensationDescription':this.jobcompensationDescription, 'jobCompanyName':this.jobCompanyName, 'employmentType':this.employmentType, 'email1':this.email1, 'email2':this.email2, 
+      'emailRadioChoice':this.emailRadioChoice, 'phoneNumber':this.phoneNumber, 'postExtension':this.postExtension, 'postContactName':this.postContactName, 'byphoneVal':this.byphoneVal, 'byTextVal':this.byTextVal};
+        this.http.post('http://127.0.0.1/notcraigs/wizard/listJob/createListing.php', data)
+        .subscribe(
+          (res) => {
+            console.log("here mofo");
+          },
+          err => {
+            console.log(err);
+            //finish loading
+          }
+        );   
       }
-    );   
+
+    }
   }
 }
