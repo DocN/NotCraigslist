@@ -108,6 +108,9 @@ input[type=text]:focus {
     margin:0;
     padding:0;
     background-color:#eeeeee;
+    border-color:grey;
+    border-style: solid;
+    border-width:1px;
 }
 
 .emailInput {
@@ -119,5 +122,84 @@ input[type=text]:focus {
 
 .col4Padding {
     margin-left:5px;
+}
+
+.contactBy {
+    margin-left:5px;
+    font-weight:bold;
+}
+
+.pickMenu {
+    margin-left:10px;
+}
+
+.contactInfosTitle {
+    color:black;
+    font-weight:bold;
+}
+
+.inputboxbackground {
+    background-color:white;
+}
+
+.continueButton {
+    font-size:20px;
+} 
+
+.warningText {
+    font-size:20px;
+    font-weight:bold;
+    color:red;
+}
+
+.uploadbox {
+    background-color:#eeeeee;
+    padding-top:20px;
+    padding-bottom:20px;
+    border-color:grey;
+    border-style:solid;
+    border-width:1px;
+}
+
+.imageListingBoxFeatured {
+    border-color:yellow;
+    border-style:solid;
+    border-width:1px;
+    background-color:#eeeeee;
+    padding:10px;
+    width:300px;
+    height:169px;
+}
+
+.imageListingBox {
+    border-color:grey;
+    border-style:solid;
+    border-width:1px;
+    background-color:#eeeeee;
+    padding:10px;
+    width:300px;
+    height:169px;
+}
+.featuredImage {
+    position: absolute;
+    background-color:lightyellow;
+    margin-left:-10px;
+    margin-top:-10px;
+}
+
+.xclosedImage {
+    position: absolute;
+    margin-left:265px;
+    margin-top:-5px;
+    height:20px;
+    width:20px;
+    background-color:#ffb8b8;
+    text-align:center;
+    border-radius: 5px;
+    cursor: pointer; 
+}
+
+.doneImage {
+
 }
 

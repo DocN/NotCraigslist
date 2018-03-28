@@ -1,5 +1,4 @@
 <app-standardnavbar></app-standardnavbar>
-
 <div *ngIf="this.mainType == -1">
     <!-- first wizard -->
     <div class="container spacing">
@@ -76,11 +75,21 @@
         <div class="row">
             <button (click)="jobContinue($event)">continue</button>
         </div>
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
     </div>
 </div>
 
 <div *ngIf="this.mainType == 0 && this.activateJobPost == 1">
     <div class="container">
+        <div *ngFor="let warning of warningString;let i = index">
+            <div class="col-12">
+                <div class="row warningText">
+                    {{warning}}
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="spacing"></div>
         </div>
@@ -136,7 +145,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="postformGreen">employment type</div>
-                        <select>
+                        <select (change)="setEmployType($event)">
                             <option value="fulltime">full-time</option>
                             <option value="parttime">part-time</option>
                             <option value="contract">contract</option>
@@ -183,7 +192,7 @@
             </div>
         </div>
         <div class="row contactInfo">
-            <div class="col-4">
+            <div class="col-5">
                 <div class="row">
                     <div class="bracketedTextSpacingSmall"></div>
                 </div>
@@ -196,8 +205,165 @@
                 <div class="row">
                     <input #email2 id="email2" class="emailInput" type="text" (keyup)="setEmail2(email2.value)"> 
                 </div>
+                <div class="row">
+                    <div class="bracketedTextSpacing"></div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="contactBy">users can also contact me by:</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="bracketedTextSpacingSmall"></div>
+                </div>
+                <div class="row">
+                    <div class="option optionMarginLeft"><label><input id="byphone" type="checkbox"  (change)="checkedByPhone()"/> by phone</label></div>
+                    <div class="option optionMarginLeft"><label><input id="bytext" type="checkbox"  (change)="checkedByText()"/> by text</label></div>
+                </div>
+            </div>
+            <div class="col-6 col4Padding">
+                    <div class="row">
+                        <div class="bracketedTextSpacing"></div>
+                    </div>
+                <div class="row">
+                    <div class="pickMenu">
+                        <form>
+                            <label><input id="emailChoice1" type="radio" name="emailChoice" value="NCL mail relay (recommended)" checked (change)="emailChoice($event)"> CL mail relay (recommended)</label><br>
+                            <label><input id="emailChoice2" type="radio" name="emailChoice" value="show my real email address" (change)="emailChoice($event)"> show my real email address</label><br>
+                            <label><input id="emailChoice3" type="radio" name="emailChoice" value="no replies to this email" (change)="emailChoice($event)"> no replies to this email</label>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="bracketedTextSpacing"></div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="row">
+                            <div class="contactInfosTitle">phone number </div>
+                        </div>
+                        <div class="row">
+                            <input class="inputboxbackground" #postPhoneNumber id="postPhoneNumber" type="text" (keyup)="setPostPhoneNumber(postPhoneNumber.value)">
+                        </div>
+                    </div>
+                    <div class="col-3 pickMenu">
+                        <div class="row">
+                            <div class="contactInfosTitle">extension </div>
+                        </div>
+                        <div class="row">
+                            <input class="inputboxbackground" #postExtension id="postExtension" type="text" (keyup)="setPostExtension(postExtension.value)">
+                        </div>
+                    </div>
+                    <div class="col-4 pickMenu">
+                        <div class="row">
+                            <div class="contactInfosTitle">contact name </div>
+                        </div>
+                        <div class="row">
+                            <input class="inputboxbackground" #postContactName id="postContactName" type="text" (keyup)="setPostContactName(postContactName.value)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="bracketedTextSpacing"></div>
+                </div>
             </div>
         </div>
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
+        <div class="row">
+            <div class="option optionMarginLeft"><label><input id="bytext" type="checkbox"  (change)="checkedByText($event)"/> ok to highlight this job opening for persons with disabilities <a href="#">[?]</a></label></div>
+        </div>
+        <div class="row">
+            <div class="col-10"></div>
+            <div class="col-2">
+                <button class="continueButton pull-right" (click)="tryContinueJob($event)">Continue</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- MAP FRAGMENT -->
+<div *ngIf="this.mainType == 0 && this.activateJobPost == 2">
+    hello
+    <div (onload)="switchToImage()"></div>
+</div>
+
+
+<!-- Upload Image Fragment -->
+<div *ngIf="this.mainType == 0 && this.activateJobPost == 3">
+    <div class="container">
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="container">
+                    <div class="row">
+                        this posting has {{this.images.length}} images, of a maximum 24
+                    </div>
+                    <div class="row">
+                        upload best image first — it will be featured.
+                    </div>
+                    <div class="row uploadbox">
+                        <div class="container">
+                            <div class="col-12">
+                                Select image to upload:
+                                <input name="fileToUpload" type="file" (change)="uploadAnImage($event)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="bracketedTextSpacing"></div>
+                    </div>
+                    <div class="row">
+                        <div class="bracketedTextSpacing"></div>
+                    </div>
+                    <div class="row">
+                        <div class="bracketedTextSpacing"></div>
+                    </div>
+                    <div class="row">
+                        <div *ngFor="let image of images;let i = index">
+                            <div *ngIf="i == 0;else other">
+                                <div id="imageListingItem0" class="imageListingBoxFeatured">
+                                    <div class="featuredImage">Featured Image </div>
+                                    <div id="xclosedImage0" class="xclosedImage" (click)="removeImageFromList($event)">X </div>
+                                    <img height="100%" width="100%" src="{{image}}">   
+                                </div>
+                            </div>
+                            <ng-template #other>
+                                <div id="imageListingItem{{i}}" class="imageListingBox">
+                                    <div id="xclosedImage{{i}}" class="xclosedImage" (click)="removeImageFromList($event)">X </div>
+                                    <img height="100%" width="100%" src="{{image}}">
+                                </div>
+                            </ng-template>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="bracketedTextSpacing"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="doneImage pull-right"(click)="doneImageNext()">done with images</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="this.mainType == 0 && this.activateJobPost == 4">
+    <div class="container">
+        <div class="col-1"></div>
+        <div class="col-10">
+            <div class="container">
+                <div class="row">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-1"></div>
     </div>
 </div>
 

@@ -26,8 +26,11 @@ import { HelpfaqComponent } from './documents/helpfaqmenu/helpfaq.component';
 import { AboutScam } from './documents/aboutScam/aboutScam.component';
 import { PersonalSafety } from './documents/personalSafety/personalSafety.component';
 import { Terms } from './documents/terms/terms.component';
+import { RandomIdserviceService } from './random-idservice.service';
 
-const appRoutes: Routes = [
+
+
+const appRoutes:Routes = [
   {
     path: '',
     component: MainpageComponent,
@@ -81,7 +84,7 @@ const appRoutes: Routes = [
     HelpfaqComponent,
     AboutScam,
     PersonalSafety,
-    Terms
+    Terms,
   ],
   imports: [
     BrowserModule,
@@ -89,11 +92,12 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, {useHash: true}),
     FormsModule,
     HttpClientModule,
-    HttpModule,
+    HttpModule, 
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [
     SessionsService,
+    RandomIdserviceService,
   ],
   bootstrap: [AppComponent]
 })
