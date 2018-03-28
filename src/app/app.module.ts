@@ -1,4 +1,3 @@
-import { PersonalSafety } from './documents/personalSafety/personalSafety.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -11,11 +10,11 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { LoginPortalComponent } from './login/login-portal/login-portal.component';
 
 
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
-//sessions
+// sessions
 import { SessionsService } from './sessions.service';
 import { PostmainComponent } from './postwizard/postmain/postmain.component';
 import { DashmainComponent } from './dashboard/dashmain/dashmain.component';
@@ -28,7 +27,7 @@ import { AboutScam } from './documents/aboutScam/aboutScam.component';
 import { PersonalSafety } from './documents/personalSafety/personalSafety.component';
 import { Terms } from './documents/terms/terms.component';
 
-const appRoutes:Routes = [
+const appRoutes: Routes = [
   {
     path: '',
     component: MainpageComponent,
@@ -87,7 +86,7 @@ const appRoutes:Routes = [
   imports: [
     BrowserModule,
     MDBBootstrapModule.forRoot(),
-    RouterModule.forRoot(appRoutes, {useHash:true}),
+    RouterModule.forRoot(appRoutes, {useHash: true}),
     FormsModule,
     HttpClientModule,
     HttpModule,
