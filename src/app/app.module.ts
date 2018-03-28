@@ -10,11 +10,11 @@ import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { LoginPortalComponent } from './login/login-portal/login-portal.component';
 
 
-import { FormsModule }   from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
-//sessions
+// sessions
 import { SessionsService } from './sessions.service';
 import { PostmainComponent } from './postwizard/postmain/postmain.component';
 import { DashmainComponent } from './dashboard/dashmain/dashmain.component';
@@ -22,8 +22,13 @@ import { DashnavComponent } from './dashboard/dashnav/dashnav.component';
 import { LogoutComponent } from './login/logout/logout.component';
 import { DashpostingComponent } from './dashboard/dashposting/dashposting.component';
 import { StandardnavbarComponent } from './standardnavbar/standardnavbar.component';
-
+import { HelpfaqComponent } from './documents/helpfaqmenu/helpfaq.component';
+import { AboutScam } from './documents/aboutScam/aboutScam.component';
+import { PersonalSafety } from './documents/personalSafety/personalSafety.component';
+import { Terms } from './documents/terms/terms.component';
 import { RandomIdserviceService } from './random-idservice.service';
+
+
 
 const appRoutes:Routes = [
   {
@@ -45,8 +50,24 @@ const appRoutes:Routes = [
   {
     path: 'logout',
     component: LogoutComponent
+  },
+  {
+    path: 'helpfaq',
+    component: HelpfaqComponent
+  },
+  {
+    path: 'aboutScam',
+    component: AboutScam
+  },
+  {
+    path: 'personalSafety',
+    component: PersonalSafety
+  },
+  {
+    path: 'terms',
+    component: Terms
   }
-]
+];
 
 
 @NgModule({
@@ -60,11 +81,15 @@ const appRoutes:Routes = [
     LogoutComponent,
     DashpostingComponent,
     StandardnavbarComponent,
+    HelpfaqComponent,
+    AboutScam,
+    PersonalSafety,
+    Terms,
   ],
   imports: [
     BrowserModule,
     MDBBootstrapModule.forRoot(),
-    RouterModule.forRoot(appRoutes, {useHash:true}),
+    RouterModule.forRoot(appRoutes, {useHash: true}),
     FormsModule,
     HttpClientModule,
     HttpModule, 
