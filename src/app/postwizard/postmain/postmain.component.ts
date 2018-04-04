@@ -33,6 +33,7 @@ export class PostmainComponent implements OnInit {
   private jobChoicesName; 
   private jobOfferedTypeID;
   private jobChoiceChecked = new Array();
+  private selectedJobsList = new Array();
   private jobPriceTotal;
   private activateJobPost = 0;
 
@@ -139,11 +140,13 @@ export class PostmainComponent implements OnInit {
         if(this.jobChoiceChecked[i] == true) {
           console.log(this.jobChoicesName[i] + "off");
           this.jobChoiceChecked[i] = false;
+          this.selectedJobsList.splice(this.selectedJobsList.indexOf(this.jobChoicesName[i]), 1);
           this.jobPriceTotal = this.jobPriceTotal - Number(15);
         }
         else {
           console.log(this.jobChoicesName[i] + "On");
           this.jobChoiceChecked[i] = true;
+          this.selectedJobsList.push(this.jobChoicesName[i]);
           this.jobPriceTotal = this.jobPriceTotal + Number(15);
         }
       }

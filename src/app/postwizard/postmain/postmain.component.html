@@ -359,7 +359,25 @@
         <div class="col-10">
             <div class="container">
                 <div class="row">
-                    
+                    <div class="col-8 finalWizardTitleBar">
+                        <div class="pull-left">
+                            Description
+                        </div>
+                        <div class="pull-right">
+                            Price
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {{jobPostingTitle}}
+                </div>
+                <div *ngFor="let selectedItems of selectedJobsList;let i = index">
+                    <div class="col-8 finalWizardTitleRow">
+                        <div class="row">
+                            <div class="col-10">{{selectedItems}}</div>
+                            <div class="col-2"><div class="pull-right">$15.00&nbsp;USD</div></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
