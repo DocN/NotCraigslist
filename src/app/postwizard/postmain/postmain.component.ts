@@ -16,7 +16,8 @@ export class PostmainComponent implements OnInit {
   private model: any = {};
   private currentCity;
   private currentState;
-
+  private starurl = "assets/img/icon/darkstar.png";
+  private starbool = 0;
   //listing post id
   private postID;
   //image upload
@@ -481,6 +482,17 @@ export class PostmainComponent implements OnInit {
           //finish loading
         }
       );  
+    }
+  }
+
+  starChanger() {
+    if(this.starbool == 0) {
+      this.starurl = "assets/img/icon/goldstar.png";
+      this.starbool = 1;
+    }
+    else {
+      this.starurl = "assets/img/icon/darkstar.png";
+      this.starbool = 0;
     }
   }
 }

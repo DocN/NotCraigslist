@@ -355,11 +355,15 @@
 
 <div *ngIf="this.mainType == 0 && this.activateJobPost == 4">
     <div class="container">
-        <div class="col-1"></div>
-        <div class="col-10">
+        <div class="row">
+            <div class="bracketedTextSpacingLargeSpace"></div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="col-12">
             <div class="container">
                 <div class="row">
-                    <div class="col-8 finalWizardTitleBar">
+                    <div class="col-6 finalWizardTitleBar">
                         <div class="pull-left">
                             Description
                         </div>
@@ -372,16 +376,91 @@
                     {{jobPostingTitle}}
                 </div>
                 <div *ngFor="let selectedItems of selectedJobsList;let i = index">
-                    <div class="col-8 finalWizardTitleRow">
+                    <div class="col-6 finalWizardTitleRow">
                         <div class="row">
                             <div class="col-10">{{selectedItems}}</div>
                             <div class="col-2"><div class="pull-right">$15.00&nbsp;USD</div></div>
                         </div>
                     </div>
                 </div>
+                <div class="col-6 finalWizardTitleRowTotal">
+                    <div class="row">
+                        <div class="col-10"><div class="pull-right totalCharge">Total amount charged:</div></div>
+                        <div class="col-2"><div class="pull-right">${{jobPriceTotal}}.00&nbsp;USD</div></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-1"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-10 text-center">
+                <div class="attentionText">Attention: Your posting will expire from the site in 30 days.</div>
+            </div>
+            <div class="col-1"></div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
+        <div class="row">
+            <div class="col-12 blackunpublished">
+                <div class="pull-left">
+                    this is an unpublished draft.
+                </div>
+                <div class="pull-right">
+                    <button>publish</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
+        <div class="row">
+            <div class="col-12 finalWizardTitleRow">
+                <button>edit post</button>
+                <button>edit images</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacing"></div>
+        </div>
+        <div class="row">
+            <div class="col-12 previewNav">
+                <div class="pull-left">
+                    <a href="#"><div class="logo">ncl</div></a>
+                </div>
+                <div class="pull-left paditleft20">
+                        {{currentCity}} > jobs > {{mainCategory}} > {{selectedJobsList[0]}}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacingMedium"></div>
+        </div>
+        <div class="row">
+            <div class="col-1 finalWizardTitleRow">
+                <div class="replyBox">
+                    reply <img class="emailIcon" src="assets/img/email.png">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacingSmall"></div>
+        </div>
+        <div class="row">
+            <img id="lestar" src="{{starurl}}" (click)="starChanger()"> 
+            <div class="titlePreview">{{jobPostingTitle}}</div>
+        </div>
+        <div class="row">
+            {{jobBodyDescription}}
+        </div>
     </div>
 </div>
 
