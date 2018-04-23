@@ -39,16 +39,16 @@ export class PostmainComponent implements OnInit {
   private activateJobPost = 0;
 
   //job final wizard page for collecting data
-  private jobPostingTitle;
-  private jobLocationTitle;
-  private jobZipcodeTitle;
-  private jobBodyDescription;
+  private jobPostingTitle = '';
+  private jobLocationTitle = '';
+  private jobZipcodeTitle = '';
+  private jobBodyDescription = '';
   private jobCheckedDirectContact = 0;
   private jobCheckedInternship = 0;
   private jobCheckedNonprofit = 0;
   private jobCheckedTelecommuting = 0;
-  private jobcompensationDescription;
-  private jobCompanyName;
+  private jobcompensationDescription = '';
+  private jobCompanyName = '';
   private employmentType = "fulltime";
 
   //contact info post
@@ -65,6 +65,7 @@ export class PostmainComponent implements OnInit {
 
   private postCheckDisabled = false;
 
+  private currentImage = '';
   ngOnInit() {
     this.currentCity = this.session.returnCity();
     this.currentState = this.session.returnState();
@@ -374,6 +375,7 @@ export class PostmainComponent implements OnInit {
           console.log(res);
           if(res['result'] == true) {
             this.images.push(res['url']);
+            this.currentImage = this.images[0];
           }
         }
       },
@@ -494,5 +496,43 @@ export class PostmainComponent implements OnInit {
       this.starurl = "assets/img/icon/darkstar.png";
       this.starbool = 0;
     }
+  }
+
+  changeImage($event) {
+    
+    var index = -1;
+    for(let i =0; i < this.images.length; i++) {
+      var imageName = "imgIcon" + i;
+      if(imageName == $event.srcElement.id) {
+        index = i;
+        break;
+      }
+    }
+    if(index != -1) {
+      this.currentImage = this.images[index];
+    }
+  }
+  editImage() {
+    this.mainType = 0;
+    this.activateJobPost = 3;
+  }
+
+  editPost() {
+    this.mainType = 0;
+    this.activateJobPost = 1;
+  }
+
+  activateListing() {
+    let data = {'postID':this.postID};
+    this.http.post('http://127.0.0.1/notcraigs/wizard/listJob/activateListing.php', data)
+    .subscribe(
+      (res) => {
+        console.log("posted!");
+      },
+      err => {
+        console.log(err);
+        //finish loading
+      }
+    );
   }
 }

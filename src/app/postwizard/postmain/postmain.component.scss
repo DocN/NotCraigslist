@@ -288,6 +288,7 @@ input[type=text]:focus {
 }
 
 #lestar {
+    margin-top:5px;
     width:20px;
     height:20px;
 }
@@ -295,4 +296,27 @@ input[type=text]:focus {
 .titlePreview {
     font-size:20px;
     font-weight:bold;
+}
+
+.imgIcon {
+    height:50px;
+    width:50px;
+}
+
+.imageContainer {
+    height:338px;
+    width:600px;
+}
+
+.imageActual {
+    position: absolute;
+    z-index: -1;
+}
+
+.infoBox {
+    margin-bottom:10px;
+    background-color:#fafafa;
+    border-radius:5px;
+    border-style:solid;
+    border-color:#cdcdcd;
 }

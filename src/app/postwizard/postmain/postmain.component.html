@@ -424,8 +424,8 @@
         </div>
         <div class="row">
             <div class="col-12 finalWizardTitleRow">
-                <button>edit post</button>
-                <button>edit images</button>
+                <button (click)="editPost()">edit post</button>
+                <button (click)="editImage()">edit images</button>
             </div>
         </div>
         <div class="row">
@@ -459,7 +459,66 @@
             <div class="titlePreview">{{jobPostingTitle}}</div>
         </div>
         <div class="row">
+            <div class="col-8 finalWizardTitleRow">
+                <div class="imageContainer">
+                        <div class="imageActual">
+                            <img id="imageDisplay" height="338px" width="600px" src="{{currentImage}}">
+                        </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <div class="infoBox">
+                    compensation: <b>{{jobcompensationDescription}}</b>
+                </div>
+                <div class="infoBox">
+                    employment type: <b>{{employmentType}}</b>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacingSmall"></div>
+        </div>
+        <div class="row">
+            <div *ngFor="let image of images;let i = index">
+                <img id="imgIcon{{i}}" height="75px" width="75px" src="{{image}}" (click)="changeImage($event)">
+            </div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacingSmall"></div>
+        </div>
+        <div class="row">
             {{jobBodyDescription}}
+        </div>
+
+        <div class="row">
+            <div class="bracketedTextSpacingSmall"></div>
+        </div>
+        <div class="row">
+            <ul>
+                <li>Principals only. Recruiters, please don't contact this job poster.</li>
+                <li>do NOT contact us with unsolicited services or offers</li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacingSmall"></div>
+        </div>
+        <div class="row">
+            email to friend  ♥ best of
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacingSmall"></div>
+        </div>
+        <div class="row">
+            <div class="col-12 finalWizardTitleRow">
+                <button (click)="editPost()">edit post</button>
+                <button (click)="editImage()">edit images</button>
+                <div class="pull-right">
+                    <button (click)="activateListing()">publish</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="bracketedTextSpacingSmall"></div>
         </div>
     </div>
 </div>
